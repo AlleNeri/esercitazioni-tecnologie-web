@@ -1,0 +1,72 @@
+html {
+	font-size: 16px;
+	margin: 0px;
+	padding: 0px;
+	width: 100vw;
+	height: 100vh;
+}
+
+#p-yellow {	background-color: yellow; }
+
+#p-blue {
+	font-size: 3rem;
+	background-color: blue;
+}
+
+#p-magenta {
+	font-size: 4rem;
+	background-color: magenta;
+}
+
+#p-red {
+	font-size: calc(4rem - 12px);
+	background-color: red;
+}
+
+#p-green {
+	font-size: 2rem;
+	background-color: green;
+}
+
+#p-orange {
+	font-size: 1px;
+	background-color: orange;
+}
+
+.div-border { border: 1px solid black; }
+
+#div-yellow {
+	background-color: yellow;
+	width: 25vw;
+	height: 25vh;
+}
+
+#div-blue {
+	background-color: blue;
+	width: 50vw;
+	line-height: 50vh;
+}
+
+#div-magenta {
+	background-color: magenta;
+	width: calc(50vw + 100px);
+	height: calc(50vh + 100px);
+}
+
+#div-red {
+	background-color: red;
+	width: calc(50vw - 15px);
+	height: calc(50vh - 15px);
+}
+
+#div-green {
+	background-color: green;
+	width: 50vh;
+	height: 50vh;
+}
+
+#div-orange {
+	background-color: orange;
+	width: calc(70vw / 2);
+	height: calc(75vh /2);
+}

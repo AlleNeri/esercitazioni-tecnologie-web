@@ -1,0 +1,25 @@
+.sub-container {
+	padding: 0.5em;
+}
+
+.sub-container > div {
+	min-width: 20%;
+	padding-right: 0.5em;
+	padding-left: 0.5em;
+	display: inline-block;
+}
+
+.submit-btn {
+	width: 100%;
+}
+
+.submit-btn > input {
+	margin-right: 40%;
+	margin-left: 40%;
+}
+
+.form-border {
+	border-style: solid;
+	border-radius: 5px;
+	padding: 1.5em;
+}

@@ -1,0 +1,119 @@
+<html>
+	<head>
+		<title>Esercitazione 1-form</title>
+		<link rel="stylesheet" href="./index.css"/>
+	</head>
+	<body>
+		<form action="https://www.fabiovitali.it/TW/DHDK/doResponse.php" method="post" id="booking" class="form-border">
+			<h3>Booking</h3>
+			<div class="sub-container">
+				<div>
+					<label for="name">Nome: </label><input id="name" name="name" type="text" required placeholder="Joe"/>
+				</div>
+				<div>
+					<label for="cognome">Cognome: </label><input id="cognome" name="cognome" type="text" required placeholder="Doe"/>
+				</div>
+				<div>
+					<label for="email">Email: </label><input id="email" name="email" type="email" required placeholder="joe.doe@exemple.it"/>
+				</div>
+			</div>
+			<div class="sub-container">
+				<div>
+					<label for="partenza">Luogo di partenza: </label>
+					<select id="partenza" name="partenza">
+						<option value="Roma">Roma</option>
+						<option value="Bologna">Bologna</option>
+						<option value="Milano">Milano</option>
+						<option value="Forlì">Forlì</option>
+						<option value="Verona">Verona</option>
+						<option value="Firenze">Firenze</option>
+						<option value="Torino">Torino</option>
+					</select>
+				</div>
+				<div>
+					<label for="arrivo">Luogo di arrivo: </label>
+					<select id="arrivo" name="arrivo">
+						<option value="Roma">Roma</option>
+						<option value="Bologna">Bologna</option>
+						<option value="Milano">Milano</option>
+						<option value="Forlì">Forlì</option>
+						<option value="Verona">Verona</option>
+						<option value="Firenze">Firenze</option>
+						<option value="Torino">Torino</option>
+					</select>
+				</div>
+				<div>
+					<label for="data">Data: </label><input id="data" name="data" type="date" min="2023-03-09" required/>
+				</div>
+				<div>
+					<label for="accompagnamento">Accompagnamento: </label><input id="accompagnamento" name="accompagnamento" type="checkbox" required/>
+				</div>
+			</div>
+			<div class="submit-btn">
+				<input type="submit" value="Prenota">
+			</div>
+		</form>
+		<form action="https://www.fabiovitali.it/TW/DHDK/doResponse.php" method="post" id="newsletter" class="form-border">
+			<h3>Newsletter</h3>
+			<div class="sub-container">
+				<div>
+					<label for="name">Nome: </label><input id="name" name="name" type="text" required placeholder="Joe"/>
+				</div>
+				<div>
+					<label for="cognome">Cognome: </label><input id="cognome" name="cognome" type="text" placeholder="Doe"/>
+				</div>
+				<div>
+					<label for="email">Email: </label><input id="email" name="email" type="email" required placeholder="joe.doe@exemple.it"/>
+				</div>
+			</div>
+			<div class="sub-container">
+				<div>
+					<p>Frequenza di notifica:</p>
+					<input type="radio" required name="frequenza" id="radio1" value="quotidianamente"/><label for="radio1">quotidianamente</label>
+					<input type="radio" required name="frequenza" id="radio2" value="settimanalmente"/><label for="radio2">settimanalmente</label>
+					<input type="radio" required name="frequenza" id="radio3" value="mensilmente"/><label for="radio3">mensilmente</label>
+				</div>
+			</div>
+			<div class="sub-container">
+				<div>
+					<label for="dati-sensibili">Autorizzazione al trattamento dei dati sensibili: </label><input type="checkbox" required id="dati-sensibili" name="dati-sensibili"/>
+				</div>
+			</div>
+			<div class="submit-btn">
+				<input type="submit" value="Iscriviti!">
+			</div>
+		</form>
+		<form action="https://www.fabiovitali.it/TW/DHDK/doResponse.php" method="get" id="figura-geometrica" class="form-border">
+			<h3>Figura geometrica</h3>
+			<div class="sub-container">
+				<div>
+					<label for="figura">Selezionare una figura: </label>
+					<select id="figura" name="figura">
+						<option value="cerchio">cerchio</option>
+						<option value="quadrato">quadrato</option>
+						<option value="triangolo">triangolo</option>
+					</select>
+				</div>
+			</div>
+			<div class="sub-container">
+				<div>
+					<label for="dimensione">Lunghezza del diametro o del lato: </label><input type="number" id="dimensione" name="dimensione" required/>
+				</div>
+				<div>
+					<label for="colore-sfondo">Colore di sfondo: </label><input type="color" id="colore-sfondo" name="colore-sfondo"/>
+				</div>
+			</div>
+			<div class="sub-container">
+				<div>
+					<label for="bordo">Spessore bordo: </label><input type="number" id="bordo" name="bordo"/>
+				</div>
+				<div>
+					<label for="colore-bordo">Colore del bordo: </label><input type="color" id="colore-bordo" name="colore-bordo"/>
+				</div>
+			</div>
+			<div class="submit-btn">
+				<input type="submit" value="Mostra">
+			</div>
+		</form>
+	</body>
+</html>
