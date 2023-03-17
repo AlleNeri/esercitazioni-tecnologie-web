@@ -1,0 +1,36 @@
+div {
+	height: 20vh;
+	width: 100%;
+	position: absolute;
+}
+
+#one {
+	background-color: blue;
+	top: calc(0 * 20vh);
+	left: 0px;
+}
+
+#two {
+	background-color: green;
+	top: calc(1 * 20vh);
+	left: 0px;
+}
+
+#three {
+	background-color: yellow;
+	top: calc(2 * 20vh);
+	left: 0px;
+}
+
+#four {
+	background-color: red;
+	top: calc(3 * 20vh);
+	left: 0px;
+}
+
+#five {
+	background-color: orange;
+	top: calc(4 * 20vh);
+	left: 0px;
+}
+

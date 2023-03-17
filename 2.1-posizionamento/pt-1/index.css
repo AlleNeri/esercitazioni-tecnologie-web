@@ -1,0 +1,29 @@
+div {
+	height: 50vh;
+	width: 50vh;
+	position: absolute;
+}
+
+#one {
+	top: 0vh;
+	left: 0vh;
+	background-color: red;
+}
+
+#two {
+	top: 0vh;
+	left: 50vh;
+	background-color: blue;
+}
+
+#three {
+	left: 0vh;
+	top: 50vh;
+	background-color: blue;
+}
+
+#four {
+	left: 50vh;
+	top: 50vh;
+	background-color: red;
+}

@@ -1,0 +1,51 @@
+div {
+	position: absolute;
+}
+
+#one {
+	background-color: blue;
+	height: 10vh;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+}
+
+#two {
+	background-color: green;
+	height: 20vh;
+	width: 50%;
+	top: 10vh;
+	left: 0px;
+}
+
+#three {
+	background-color: yellow;
+	height: 30vh;
+	width: 50%;
+	top: calc(10vh + 20vh);
+	left: 50%;
+}
+
+#four {
+	background-color: red;
+	height: 20vh;
+	width: 40%;
+	top: calc(10vh + 20vh + 30vh);
+	right: 0px;
+}
+
+#five {
+	background-color: orange;
+	height: 20vh;
+	width: 60%;
+	top: calc(10vh + 20vh + 30vh);
+	left: 0px;
+}
+
+#six {
+	background-color: royalblue;
+	height: 20vh;
+	width: 100%;
+	top: calc(10vh + 20vh + 30vh + 20vh);
+	left: 0px;
+}
