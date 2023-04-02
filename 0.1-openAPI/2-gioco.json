@@ -1,0 +1,189 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "API Gioco",
+		"version": "1.0.0",
+		"title": "API Gioco"
+	},
+
+	"paths": {
+		"/games/": {
+			"get": {
+				"operationId": "getAllGames",
+				"summary": "Get all games",
+				"description": "Returns a list of all games filtered by category, minPlayer or maxPlayer if present",
+				"parameters": [
+					{
+						"name": "category",
+						"in": "query",
+						"type": "string"
+					},
+					{
+						"name": "minPlayer",
+						"in": "query",
+						"type": "integer"
+					},
+					{
+						"name": "maxPlayer",
+						"in": "query",
+						"type": "integer"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "list of games",
+						"schema": {
+							"type": "array",
+							"items": { "$ref": "#/definitions/Gioco" }
+						}
+					},
+					"400": { "description": "request error" }
+				}
+			},
+			"put": {
+				"operationId": "addGames",
+				"summary": "Add some games",
+				"description": "Add specified games",
+				"parameters": [
+					{
+						"name": "gameInfo",
+						"in": "body",
+						"schema": {
+							"type": "array",
+							"items": { "$ref": "#/definitions/Gioco" }
+						}
+					}
+				],
+				"responses": {
+					"200": { "description": "games added correctly" },
+					"400": { "description": "request error" }
+				}
+			}
+		},
+		"/games/{id}": {
+			"get": {
+				"operationId": "getAGame",
+				"summary": "Get a game",
+				"description": "Returns the game details",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"type": "integer"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "game's details",
+						"schema": { "$ref": "#/definitions/Gioco" }
+					},
+					"400": { "description": "request error" }
+				}
+			},
+			"patch": {
+				"operationId": "modifyGame",
+				"summary": "Modify a game",
+				"description": "Modify some field of the specified game",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"type": "integer"
+					},
+					{
+						"name": "gameInfo",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"category": {
+									"type": "string",
+									"enum": [ "Shooter", "Adventure", "Puzzle", "Sport" ]
+								},
+								"minPlayer":
+								{
+									"type": "integer",
+									"minimum": 1
+								},
+								"maxPlayer": {
+									"type": "integer",
+									"minimum": 1
+								}
+							},
+						}
+					}
+				],
+				"responses": {
+					"200": { "description": "game modified correctly" },
+					"400": { "description": "request error" }
+				}
+			},
+			"put": {
+				"operationId": "addGame",
+				"summary": "Add a game",
+				"description": "Add specified game",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"type": "integer"
+					},
+					{
+						"name": "gameInfo",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"required": [ "name", "category" ],
+							"properties": {
+								"name": { "type": "string" },
+								"category": {
+									"type": "string",
+									"enum": [ "Shooter", "Adventure", "Puzzle", "Sport" ]
+								},
+								"minPlayer":
+								{
+									"type": "integer",
+									"minimum": 1
+								},
+								"maxPlayer": {
+									"type": "integer",
+									"minimum": 1
+								}
+							},
+						}
+					}
+				],
+				"responses": {
+					"200": { "description": "game added correctly" },
+					"400": { "description": "request error" }
+				}
+			}
+		}
+	},
+
+	"definitions": {
+		"Gioco": {
+			"type": "object",
+			"required": [ "id", "name", "category" ],
+			"properties": {
+				"id": { "type": "integer" },
+				"name": { "type": "string" },
+				"category": {
+					"type": "string",
+					"enum": [ "Shooter", "Adventure", "Puzzle", "Sport" ]
+				},
+				"minPlayer": {
+					"type": "integer",
+					"minimum": 1
+				},
+				"maxPlayer": {
+					"type": "integer",
+					"minimum": 1
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,214 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "API Ristorante",
+		"version": "1.0.0",
+		"title": "API Ristorante"
+	},
+
+	"paths": {
+		"/menus/": {
+			"get": {
+				"operationId": "elencoMenu",
+				"summary": "elenco menu",
+				"description": "Questa operazione ci permette di ottenere l'elenco di tutti i menu",
+				"responses": {
+					"200": {
+						"description": "elenco corretto",
+						"schema": {
+							"type": "array",
+							"items": { "$ref": "#/definitions/Menu" }
+						}
+					},
+					"400": { "description": "errore richiesta" }
+				}
+			},
+			"post": {
+				"operationId": "aggiungiMenu",
+				"summary": "aggiunta menu",
+				"description": "Questa operazione ci permette di aggiungere un nuovo menu",
+				"parameters": [
+					{
+						"name": "nuovoMenu",
+						"in": "body",
+						"schema": { "$ref": "#/definitions/Menu" }
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "elenco corretto",
+						"schema": { "$ref": "#/definitions/Menu" }
+					},
+					"400": { "description": "errore richiesta" }
+				}
+			}
+		},
+		"/menus/{menuId}": {
+			"get": {
+				"operationId": "mostraMenu",
+				"summary": "mostra menu",
+				"description": "Questa operazione ci permette di ottenere le informazioni di un singolo menu, piatti esclusi",
+				"parameters": [
+					{
+						"name": "menuId",
+						"in": "path",
+						"type": "integer",
+						"required": true
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "elenco corretto",
+						"schema": { "$ref": "#/definitions/Menu" }
+					},
+					"400": { "description": "errore richiesta" }
+				}
+			},
+			"post": {
+				"operationId": "aggiungiPrezzo",
+				"summary": "aggiunta prezzo menu",
+				"description": "Questa operazione ci permette di aggiungere un prezzo a un menu",
+				"parameters": [
+					{
+						"name": "menuId",
+						"in": "path",
+						"type": "integer",
+						"required": true
+					},
+					{
+						"name": "prezzo",
+						"in": "query",
+						"type": "integer"
+					}
+				],
+				"responses": {
+					"200": { "description": "prezzo aggiornato correttamente" },
+					"400": { "description": "errore richiesta" }
+				}
+			},
+			"delete": {
+				"operationId": "eliminazioneMenu",
+				"summary": "eliminazione menu",
+				"description": "Questa operazione ci permette di eliminare un menu",
+				"parameters": [
+					{
+						"name": "menuId",
+						"in": "path",
+						"type": "integer",
+						"required": true
+					}
+				],
+				"responses": {
+					"200": { "description": "corretta cancellazione menu" },
+					"400": { "description": "errore richiesta" }
+				}
+			}
+		},
+		"/menus/{menuId}/tipo": {
+			"get": {
+				"operationId": "tipoMenu",
+				"summary": "tipo di menu",
+				"description": "Questa operazione ci permette di ottenere il tipo di un menu",
+				"parameters": [
+					{
+						"name": "menuId",
+						"in": "path",
+						"type": "integer",
+						"required": true
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "tipo del menu indicato",
+						"schema": { "$ref": "#/definitions/Menu/properties/tipo" }
+					},
+					"400": { "description": "errore richiesta" }
+				}
+			}
+		},
+		"/menus/{menuId}/piatti": {
+			"get": {
+				"operationId": "piattiMenu",
+				"summary": "piatti nel menu",
+				"description": "Questa operazione ci permette di elencare i piatti in un menu",
+				"parameters": [
+					{
+						"name": "menuId",
+						"in": "path",
+						"type": "integer",
+						"required": true
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "elenco corretto dei piatti nel menu indicato",
+						"schema": {
+							"type": "array",
+							"items": { "$ref": "#/definitions/Piatti" }
+						}
+					},
+					"400": { "description": "errore richiesta" }
+				}
+			},
+			"post": {
+				"operationId": "aggiungiPiatti",
+				"summary": "aggiunta piatti al menu",
+				"description": "Questa operazione ci permette di aggiungere un piatto al menu",
+				"parameters": [
+					{
+						"name": "menuId",
+						"in": "path",
+						"type": "integer",
+						"required": true
+					},
+					{
+						"name": "piatti",
+						"in": "body",
+						"schema": {
+							"type": "array",
+							"items": { "$ref": "#/definitions/Piatti" }
+						}
+					}
+				],
+				"responses": {
+					"200": { "description": "piatti aggiunti correttamente" },
+					"400": { "description": "errore richiesta" }
+				}
+			}
+		}
+	},
+	
+	"definitions": {
+		"Menu": {
+			"type": "object",
+			"required": [ "id", "descrizione", "tipo", "prezzo" ],
+			"properties": {
+				"id": { "type": "integer" },
+				"descrizione": { "type": "string"},
+				"tipo": {
+					"type": "string",
+					"enum": [ "carne", "pesce", "vini", "dolci" ]
+				},
+				"prezzo": {
+					"type": "number",
+					"minimum": 50
+				}
+			}
+		},
+		"Piatti": {
+			"type": "object",
+			"required": [ "id", "descrizione", "prezzo" ],
+			"properties": {
+				"id": { "type": "integer" },
+				"descrizione": {
+					"type": "string",
+					"example": "Un buno piatto di pesce"
+				},
+				"prezzo": {
+					"type": "number",
+					"minimum": 50
+				}
+			}
+		}
+	}
+}
