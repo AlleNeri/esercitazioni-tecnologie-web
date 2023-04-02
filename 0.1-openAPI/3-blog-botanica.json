@@ -1,0 +1,108 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "API Gioco",
+		"version": "1.0.0",
+		"title": "API Gioco"
+	},
+
+	"paths": {
+		"/articles/": {
+			"get": {
+				"operationId": "getArticles",
+				"summary": "Get articles",
+				"description": "Get all articles filtered by category and since a specified date",
+				"parameters": [
+					{
+						"name": "date",
+						"in": "query",
+						"type": "string"
+					},
+					{
+						"name": "category",
+						"in": "query",
+						"type": "string",
+						"enum": [ "orto", "fiori", "attrezzi", "prodotti", "consigli", "news" ]
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "list of articles",
+						"schema": {
+							"type": "array",
+							"items": { "$ref": "#/definitions/Articles" }
+						}
+					},
+					"400": { "description": "parameters error" }
+				}
+			},
+			"put": {
+				"operationId": "createArticle",
+				"summary": "Create article",
+				"description": "Create a new article",
+				"parameters": [
+					{
+						"name": "articleInfo",
+						"in": "body",
+						"schema": { "$ref": "#/definitions/Articles" }
+					}
+				],
+				"responses": {
+					"200": { "description": "article correctly created" },
+					"400": { "description": "parameters error" }
+				}
+			}
+		},
+		"/articles/{id}/": {
+			"post": {
+				"operationId": "modufyArticles",
+				"summary": "Modify article",
+				"description": "Modify the specified article",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "info",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"title": { "type": "string" },
+								"content": { "type": "string" },
+								"category": {
+									"type": "string",
+									"enum": [ "orto", "fiori", "attrezzi", "prodotti", "consigli", "news" ]
+								}
+							}
+						}
+					}
+				],
+				"responses": {
+					"200": { "description": "article correctly modified" },
+					"400": { "description": "parameters error" }
+				}
+			}
+		}
+	},
+
+	"definitions": {
+		"Articles": {
+			"type": "object",
+			"required": [ "id", "title", "content" ],
+			"properties": {
+				"id": { "type": "integer" },
+				"date": { "type": "string" },
+				"title": { "type": "string" },
+				"content": { "type": "string" },
+				"category": {
+					"type": "string",
+					"enum": [ "orto", "fiori", "attrezzi", "prodotti", "consigli", "news" ]
+				}
+			}
+		}
+	}
+}
