@@ -1,0 +1,48 @@
+.navbar {
+	background: rgb(2,0,36);
+	background: linear-gradient(315deg, rgba(2,0,36,1) 0%, rgba(17,107,149,1) 63%, rgba(25,115,152,1) 94%, rgba(32,123,154,1) 98%, rgba(1,131,172,1) 100%, rgba(56,132,148,0) 100%);
+	color: white;
+}
+
+.logo {
+	margin-left: 1rem;
+}
+
+ul .navbar-links {
+	list-style-type: none;
+	display: inline;
+}
+
+.navbar-links > li {
+	display: inline;
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+}
+
+.navbar-links > li > a {
+	text-decoration: none;
+	color: white;
+}
+
+.my-radio-label {
+	margin-right: 2rem;
+	margin-left: 0.5rem;
+}
+
+.my-input {
+	border-radius: 10px;
+	padding-top: 1vh;
+	padding-bottom: 1vh;
+	padding-left: 1vw;
+	padding-right: 1vw;
+	border: 0px;
+}
+
+.search-button {
+	border-radius: 10px;
+	background-color: darkgoldenrod;
+	color: darkblue;
+	padding: 1vh 4vw;
+	border: 0px;
+	font-weight: bold;
+}
