@@ -4,7 +4,6 @@ export default function Card(props) {
 	const { data } = props;
 	//render
 	if(data.cod===200) {
-		console.log(data);
 		return (
 			<div className="center">
 				<img
