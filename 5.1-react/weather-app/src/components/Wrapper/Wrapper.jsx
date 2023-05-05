@@ -4,6 +4,7 @@ import { getCordUrl, getWeatherUrl } from "../../linkGenerator.js";
 import Card from "../Card/Card";
 import Filter from "../Filter/Filter";
 import Btn from "../Btn/Btn";
+import MultiCards from "../MultiCards/MultiCards.jsx";
 
 //cities
 const cities=[ { name: "Bologna", key: "bologna" },
@@ -18,22 +19,10 @@ const cities=[ { name: "Bologna", key: "bologna" },
 	{ name: "Rimini", key: "rimini" }
 ];
 
-function initialFullData() {
-	let temp = [];
-	cities.forEach((c, i)=> temp.push({ id: i++ }));
-	return temp;
-}
-
 export default function Wrapper() {
 	//variables
 	const [ data, setData ] = useState({});
-	const [ fullData, setFullData ] = useState(initialFullData());
-	function createFullDataFormatted() {
-		let temp = [];
-		fullData.forEach((d, i)=> temp.push(<Card data={d} key={i} />));
-		return temp;
-	}
-	const [ fullDataFormatted, setFullDataFormatted ] = useState(createFullDataFormatted());
+	const [ fullData, setFullData ] = useState([]);
 	//create options modifier
 	//city modifier
 	const updateCity = async(newCity)=> {
@@ -51,39 +40,58 @@ export default function Wrapper() {
 	};
 	//get all cities weather with promAll
 	const promAll = async()=> {
-		//delete data
-		setFullData(initialFullData());
+		//delete old data
+		setFullData([]);
 		//array of promise
-		let promises = [];
+		let promisesCord = [];
+		//fetch all cords
+		cities.forEach(c=>
+			promisesCord.push(
+				fetch(getCordUrl(c.key)).then(res=> res.json())
+			)
+		);
+		Promise.all(promisesCord)
+			.then(cords=> {
+				//array of weather
+				let promisesWeather = [];
+				//fetch all weather
+				cords.forEach(c=>
+					promisesWeather.push(
+						fetch(getWeatherUrl(c[0])).then(res=> res.json())
+					)
+				);
+				Promise.all(promisesWeather)
+					.then(data=> setFullData(data));
+			});
+		/*
 		cities.forEach(c=> {
-			promises.push(new Promise(async()=> {
-				//fetch latitude and longitude
-				const cordUrl = getCordUrl(c.key);
-				let res = await fetch(cordUrl);
-				let data = res.json();
-				console.log(data);
-				//fetch the weather
-				const weatherUrl = getWeatherUrl(data[0]);
-				res = await fetch(weatherUrl);
-				console.log(res.json());
-				return res.json();
-			}));
+			promises.push(
+				fetch(getCordUrl(c.key))
+					.then(res=> res.json())
+					.then(data=> {
+						console.log(data);
+						//fetch the weather
+						const weatherUrl = getWeatherUrl(data[0]);
+						fetch(weatherUrl)
+							.then(res=> res.json());
+					})
+			)
 		});
 		//store the data
-		Promise.all(promises).then(datas=> {
-			console.log("datas: ", datas);
-			setFullData(datas);
+		Promise.all(promises).then(promRes=> {
+			console.log("promRes: ", promRes);
+			setFullData(promRes);
 			//render the data
 			console.log("in promiseall");
-			setFullDataFormatted();
 		}).catch(console.log("problema"));
+		*/
 	};
 	//get all cities weather with foreach
 	const forEach = async()=> {
-		//delete data
-		setFullData(initialFullData());
+		//delete old data
+		setFullData([]);
 		//fetch latitude and longitude of all cities
-		cities.forEach((c, i)=> {
+		cities.forEach(c=> {
 			//fetch latitude and longitude
 			const cordUrl = getCordUrl(c.key);
 			fetch(cordUrl)
@@ -93,14 +101,7 @@ export default function Wrapper() {
 					const weatherUrl = getWeatherUrl(data[0]);
 					fetch(weatherUrl)
 						.then(res=> res.json())
-						.then(d=> {
-							setFullData(prev=> {
-								prev[i]=d;
-								return prev;
-							});
-							//render the data
-							setFullDataFormatted(createFullDataFormatted());
-						});
+						.then(d=> setFullData(prev=> [ ...prev, d ]));
 				});
 		});
 	};
@@ -112,7 +113,7 @@ export default function Wrapper() {
 			<hr/>
 			<Btn text="Scarica il meteo di tutte le città" triggered={promAll} />
 			<Btn text="Scarica il meteo di tutte le città" triggered={forEach} />
-			<div className="flexbox">{fullDataFormatted}</div>
+			<MultiCards info={fullData} />
 		</>
 	);
 }
