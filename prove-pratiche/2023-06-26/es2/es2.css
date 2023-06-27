@@ -1,0 +1,38 @@
+html {
+	height: 100%;
+}
+
+body {
+	width: 90%;
+	margin: 0% 5%;
+	height: 100%;
+	background-image: url("./bg.jpg");
+	background-attachment: fixed;
+	background-size: 100%;
+}
+
+.container {
+	display: grid;
+	grid-template-areas: "title card"
+	"footer footer";
+	grid-template-columns: 1fr 1fr;
+	column-gap: 5%;
+	height: 100%;
+}
+
+.container > div {
+	text-align: center;
+	height: 100%;
+}
+
+.title {
+	grid-area: title;
+	color: white;
+}
+
+.card {
+	width: 90%;
+	max-width: 600px;
+	grid-area: card;
+	background-color: white;
+}
