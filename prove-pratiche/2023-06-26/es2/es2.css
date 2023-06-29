@@ -13,26 +13,46 @@ body {
 
 .container {
 	display: grid;
-	grid-template-areas: "title card"
-	"footer footer";
+	grid-template-areas: "header header" "title card" "footer footer";
+	grid-template-rows: 10% 80% 10%;
 	grid-template-columns: 1fr 1fr;
 	column-gap: 5%;
 	height: 100%;
 }
 
-.container > div {
-	text-align: center;
-	height: 100%;
-}
-
 .title {
+	top: 50%;
+	position: absolute;
+	top: 45%;
+	left: 25%;
 	grid-area: title;
 	color: white;
 }
 
 .card {
+	padding-left: 5%;
+	justify-content: center;
 	width: 90%;
 	max-width: 600px;
 	grid-area: card;
 	background-color: white;
+	border-radius: 1%;
+}
+
+.input {
+	float: left;
+	margin-right: 5%;
+}
+
+.input > label, select, input {
+	display: block;
+}
+
+.continue {
+	padding: 2% 5%;
+	margin: 2%;
+	float: right;
+	border-radius: 35%;
+	background-color: dodgerblue;
+	color: white;
 }
