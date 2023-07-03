@@ -1,0 +1,65 @@
+{
+  "libri": [
+    {
+      "id": 1,
+      "titolo": "La spada nella roccia",
+      "autore": "Walt Disney",
+      "editore": "Disney",
+      "descrizione": "Un libro di animazione",
+      "copertina": "Spada",
+      "tag": "animation",
+      "copie": 3
+    },
+    {
+      "id": 2,
+      "titolo": "21 consigli per il XXI secolo",
+      "autore": "Yuval Noah Harari",
+      "editore": "Bompiani",
+      "descrizione": "Un saggio filosofico",
+      "copertina": "Occhio",
+      "tag": "saggio",
+      "copie": 2
+    },
+    {
+      "id": 3,
+      "titolo": "Homo deus - breve storia del futuro",
+      "autore": "Yuval Noah Harari",
+      "editore": "Bompiani",
+      "descrizione": "Un saggio filosofico",
+      "copertina": "Impronta digitale",
+      "tag": "bestSeller",
+      "copie": 1
+    },
+    {
+      "id": 4,
+      "titolo": "Sapiens - da animali a dei",
+      "autore": "Yuval Noah Harari",
+      "editore": "Bompiani",
+      "descrizione": "Un saggio filosofico",
+      "copertina": "Pitture rupestri",
+      "tag": "saggio",
+      "copie": 1
+    },
+    {
+      "id": 5,
+      "titolo": "La bomba atomica",
+      "autore": "Roberto Mercadini",
+      "editore": "Bur",
+      "descrizione": "Un romanzo storico",
+      "copertina": "Fungo atomico",
+      "tag": "bestSeller",
+      "copie": 4
+    },
+    {
+      "id": 6,
+      "titolo": "1984",
+      "autore": "Giorg Orwell",
+      "editore": "Mondadori",
+      "descrizione": "Un romanzo distopico",
+      "copertina": "Il grande fratello",
+      "tag": "bestSeller",
+      "copie": 0
+    }
+  ],
+  "ordini": []
+}
