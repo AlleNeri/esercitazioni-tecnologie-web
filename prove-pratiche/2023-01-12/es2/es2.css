@@ -1,0 +1,29 @@
+body {
+	min-height: 100%;
+	background-color: lightgrey;
+}
+
+.rightHeader {
+	min-width: 10%;
+}
+
+.afbg {
+	background-image: url("./background.jpg");
+	background-repeat: round;
+}
+
+.paddingBottom {
+	padding-bottom: 43% !important;
+}
+
+.midPageWidth {
+	width: 50%;
+}
+
+.height200 {
+	height: 200px;
+}
+
+.height300 {
+	height: 300px;
+}
