@@ -27,3 +27,12 @@ body {
 .height300 {
 	height: 300px;
 }
+
+.footerContainer > h6 {
+	font-weight: bold;
+}
+
+.footerContainer > a {
+	text-decoration: none;
+	color: white;
+}
