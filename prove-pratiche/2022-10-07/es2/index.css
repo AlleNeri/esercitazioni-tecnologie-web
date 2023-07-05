@@ -1,0 +1,37 @@
+.maiuscolo {
+	font-variant-caps: all-small-caps;
+	font-weight: bold;
+	color: brown;
+}
+
+.img-container {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	width: 25%;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.food {
+	background-image: url("./imgB/img1.jpg");
+}
+
+.wine {
+	background-image: url("./imgB/img2.jpg");
+}
+
+.entertainment {
+	background-image: url("./imgB/img3.jpg");
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.bg-brown {
+	background-color: brown;
+	border: 0px;
+	border-radius: 10%;
+	padding: 10px;
+}
