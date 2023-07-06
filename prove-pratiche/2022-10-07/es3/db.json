@@ -1,0 +1,102 @@
+{
+  "occupazione": [
+    {
+      "id": 0,
+      "giorno": "2023-08-01",
+      "turni": [
+        {
+          "nome": "Alessandro",
+          "ora": "15-16"
+        },
+        {
+          "nome": "Matilda",
+          "ora": "16-17"
+        },
+        {
+          "nome": "Francesco",
+          "ora": "18-19"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "giorno": "2023-08-01",
+      "turni": [
+        {
+          "nome": "Alessandro",
+          "ora": "15-16"
+        },
+        {
+          "nome": "Matilda",
+          "ora": "16-17"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "giorno": "2023-08-01",
+      "turni": [
+        {
+          "nome": "Alessandro",
+          "ora": "15-16"
+        },
+        {
+          "nome": "Matilda",
+          "ora": "16-17"
+        },
+        {
+          "nome": "Ivan",
+          "ora": "18-19"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "giorno": "2023-08-01",
+      "turni": [
+        {
+          "nome": "Matilda",
+          "ora": "16-17"
+        },
+        {
+          "nome": "Francesco",
+          "ora": "18-19"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "giorno": "2023-08-02",
+      "turni": [
+        {
+          "nome": "Alessandro",
+          "ora": "15-16"
+        },
+        {
+          "nome": "Matilda",
+          "ora": "16-17"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "giorno": "2023-08-02",
+      "turni": [
+        {
+          "nome": "Matilda",
+          "ora": "16-17"
+        },
+        {
+          "nome": "Francesco",
+          "ora": "18-19"
+        },
+        {
+          "nome": "Ivan",
+          "ora": "18-19"
+        }
+      ]
+    }
+  ],
+  "scegli": [
+  ]
+}

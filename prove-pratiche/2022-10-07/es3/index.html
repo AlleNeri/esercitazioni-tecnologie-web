@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Centro musicale</title>
+		<link rel="stylesheet" type="text/css" href="./index.css"/>
+		<script src="./index.js" defer></script>
+	</head>
+	<body>
+		<nav>
+			<h1>Testata</h1>
+		</nav>
+		<label for="placeSelector">Scegli lo spazio: </label>
+		<select name="placeSelector" id="placeSelector"></select>
+		<label for="daySelector">Scegli il giorno(formato yyyy-mm-dd): </label>
+		<input name="daySelector" id="daySelector" placeholder="yyyy-mm-dd" />
+		<div id="indicazioni"></div>
+		<table style="background-color: lightblue;">
+			<tr>
+				<th>Nome</th>
+				<th>Ora</th>
+			</tr>
+			<tbody id="table"></tbody>
+		</table>
+		<div>
+			<h2>Prenota</h2>
+			<p>Spazio</p>
+			<select name="placeBook" id="placeBook"></select>
+			<p>Giorno</p>
+			<input name="dayBooking" id="dayBooking" placeholder="yyyy-mm-dd" />
+			<br/>
+			<p>Orario</p>
+			<input type="number" id="from" name="from" placeholder="dalle" />
+			<label for="from" id="to"></label>
+			<br/>
+			<p>Nome</p>
+			<input type="text" id="name" name="name" placeholder="nome" />
+			<br/>
+			<button id="book">Prenota</button>
+		</div>
+	</body>
+</html>
