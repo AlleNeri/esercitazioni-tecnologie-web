@@ -1,0 +1,37 @@
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix my: <http://example.com>.
+
+my:ingoshultz
+	a foaf:Person;
+	foaf:name "Ingo Shultz";
+	rdf:birth_place "Lingen";
+	rdf:date_birth "1975-07-26";
+	foaf:alive true;	#"è", verbo al presente
+	rdf:job my:velocista400;
+	rdf:profession_active false;	#"ex" non fa più questo mestiere
+	rdf:profession_goal my:goal1;
+	rdf:profession_goal my:goal2.
+
+my:velocista400
+	a rdf:profession;
+	rdf:profession_subsection rdf:atleta;
+	rdf:name "velocista";
+	rdf:profession_specialized "400 metri piani".
+
+my:goal1
+	a rdf:price;
+	rdf:name "medaglia di argento";
+	rdf:price_category rdf:sport;
+	rdf:competition_level rdf:mondiale;
+	rdf:competition my:velocista400;
+	rdf:place "Edmonton";
+	rdf:year 2001.
+
+my:goal2
+	a rdf:price;
+	rdf:title "campione";
+	rdf:price_category rdf:sport;
+	rdf:competition_level rdf:europe;
+	rdf:place "Monaco di Baviera";
+	rdf:year 2002.

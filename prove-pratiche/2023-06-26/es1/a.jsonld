@@ -1,0 +1,21 @@
+{
+	"@context": {
+		"foaf": "http://xmlns.com/foaf/0.1/",
+		"rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+		"my": "http://example.com/"
+	},
+	"my:umbertoeco": {
+		"@type": "foaf:Person",
+		"foaf:name": "Umberto Eco",
+		"rdf:link": "http://www.umbertoeco.com",
+		"rdf:alive": fales,
+		"rdf:nationality": "Itaian",
+		"rdf:bidth": "1932-05-01",
+		"rdf:job": "my:job"
+	},
+	"my:job": {
+		"@type": "rdf:profession",
+		"rdf:name": "professore universitario",
+		"rdf:at": "Università di Bologna"
+	}
+}
